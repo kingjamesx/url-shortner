@@ -1,4 +1,4 @@
-import Logo from '../assets/footerLogo.svg'
+import Logo from '../assets/footerlogo.svg'
 import Twitter from '../assets/twiiter.png'
 import Facebook from '../assets/facebook.png'
 import Instagram from '../assets/instagram.png'
