@@ -62,8 +62,8 @@ const Faq = () => {
     }
   return (
     <section>
-        <div className=' w-[744px] mx-auto text-[20px] mt-10 pb-24'>
-            <p className='text-center font-bold text-[40px]'>Faqs</p>
+        <div className=' max-w-[744px] mx-auto text-[20px] mt-10 pb-24 px-5'>
+            <p className='text-center font-bold text-2xl lg:text-[40px]'>Faqs</p>
             {faqs.map(item=>{
                 return(
                     <div className='border-[#D6D6D6] border-b p-4'>

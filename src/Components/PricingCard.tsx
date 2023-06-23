@@ -37,7 +37,7 @@ const cardArr=[
 const PricingCard = () => {
   return (
     <section>
-      <div className="flex gap-0 items-center justify-center mt-[98px]">
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-0 items-center justify-center mt-[40px] lg:mt-[98px]">
          {
           cardArr.map((item=>{
             return(

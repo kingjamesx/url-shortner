@@ -4,7 +4,7 @@ const Hero = ({login}:{ login: () => void; }) => {
   return (
     <div className="">
        <Header login={login}/>
-       <HeroContent />
+       <HeroContent  login={login}/>
     </div>
   )
 }

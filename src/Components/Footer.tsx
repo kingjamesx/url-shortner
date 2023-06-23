@@ -90,8 +90,8 @@ const social=[
 const Footer = () => {
   return (
     <>
-    <div className=" flex justify-center gap-20 ">
-        <section className='flex flex-col gap-10'>
+    <div className=" flex flex-col lg:flex-row  justify-center gap-20 ">
+        <section className='flex flex-col gap-10 items-center'>
           <span>
             <img src={Logo} alt="logo" />
           </span>
@@ -105,7 +105,7 @@ const Footer = () => {
          })}
           </div>
         </section>
-        <section className='grid grid-cols-4 gap-x-8'>
+        <section className='grid grid-cols-3 lg:grid-cols-4 gap-x-8 mx-auto px-5'>
           {footer.map(item=>{
             const arr=item.Links
             return (
@@ -118,7 +118,7 @@ const Footer = () => {
           })}
         </section>
         </div>
-        <p className='text-right '>Term of Service | Security| ⓒ Scissor 2023</p>
+        <p className='lg:text-right text-center'>Term of Service | Security| ⓒ Scissor 2023</p>
         </>
     
   )

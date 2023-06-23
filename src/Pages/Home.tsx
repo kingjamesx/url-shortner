@@ -34,47 +34,47 @@ const Home = () => {
       </section>
     </div>
     <div>
-       <Article/>
+       <Article />
     </div>
   
-    <section className="bg-[#1E3448]  relative p-56">
-      <span className="absolute top-0 left-0">
+    <section className="bg-[#1E3448]  relative p-32 lg:p-56">
+      <span className="hidden lg:block absolute top-0 left-0">
         <img src={SG1} alt="" />
       </span>
-      <div className="p-[20px] mx-auto w-[500px]  flex justify-center items-center  z-[999]">
-      <Shortner/>
+      <div className="p-[20px] mx-auto lg:w-[500px]  flex justify-center items-center  z-[999]">
+      <Shortner login={handleLogin}/>
       </div>
       
-        <span className="absolute right-0 -bottom-[0px]  z-10 ">
+        <span className="hidden lg:block absolute right-0 -bottom-[0px]  z-10 ">
         <img src={SG2} alt="" /> 
         </span>
        
 
     </section>
     <section className="relative">
-      <span className="absolute"><img src={faq1} alt="" /></span>
+      <span className="hidden lg:block absolute"><img src={faq1} alt="" /></span>
       <Faq />
-      <span className="absolute right-0 -bottom-[80px]"><img src={faq2} alt="" /></span>
+      <span className="hidden lg:block absolute right-0 -bottom-[80px]"><img src={faq2} alt="" /></span>
     </section>
     <section className="bg-[#1E3448] relative pb-10">
-      <span className="absolute">
+      <span className="hidden lg:block absolute">
         <img src={cta1} alt="" />
       </span>
-      <Cta />
-      <span className="absolute right-0 -top-[18px]">
+      <Cta login={handleLogin}/>
+      <span className="hidden lg:block absolute right-0 -top-[18px]">
       <img src={cta2} alt="" />
 
       </span>
     </section>
     <section className="relative">
-      <span className="absolute -bottom-20">
+      <span className="hidden lg:block absolute -bottom-20">
         <img src={Group1} alt="" />
       </span>
       <div className='max-w-[1200px] mx-auto mt-20'>
       <Footer/>
       </div>
      
-      <span className="absolute right-0 -bottom-[80px]">
+      <span className="hidden lg:block absolute right-0 -bottom-[80px]">
         <img src={Group2} alt=""  />
       </span>
     </section>

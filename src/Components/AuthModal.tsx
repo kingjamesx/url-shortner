@@ -59,7 +59,7 @@ const AuthModal = ({close}:{ close: () => void; }) => {
       <ToastContainer />
     <section className='bg-white p-6  '>
         <div className='flex justify-between items-center'>
-           {signIn?<p>Sign In</p>:<p>Sign Up</p>} 
+           {signIn?<p className='font-bold'>Sign In</p>:<p className='font-bold'>Sign Up</p>} 
              <span className='cursor-pointer' onClick={close}><GrClose /></span>
         </div>
 
@@ -68,13 +68,13 @@ const AuthModal = ({close}:{ close: () => void; }) => {
             <input type="text" name='email' value={form.email} onChange={handleChange} placeholder='Email' className='border border-[##333] w-full p-4 mt-4' />
             <input type="text" name='password' onChange={handleChange} placeholder='Password' className='border border-[##333] w-full p-4 mt-3' />
             <p className='mt-2'>The email address is badly formatted.</p>
-            <div className='flex justify-between items-center mt-4'>
+            <div className='flex flex-col lg:flex-row justify-between items-center mt-4'>
            
-            <section className='flex'>
+            <section className='flex  gap-2'>
             <p>{signIn?"Don't have an account?":'Already have an account?'}</p>
-            <button type='button' onClick={handleSignIn}>{signIn?'Sign up':'Sign in'}</button>
+            <button type='button' onClick={handleSignIn} className='text-[#005ae2] underline'>{signIn?'Sign up':'Sign in'}</button>
             </section>
-           {signIn? <button onClick={submitSignIn}>Sign in</button>: <button onClick={ submitSignUp}>Sign Up</button>} 
+           {signIn? <button onClick={submitSignIn} className='bg-[#005ae2] rounded-full px-6 py-3 text-white'>Sign in</button>: <button onClick={ submitSignUp} className='bg-[#005ae2] rounded-full px-6 py-3 text-white'>Sign Up</button>} 
         </div>
         </form>
          

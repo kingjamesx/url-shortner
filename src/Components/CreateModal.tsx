@@ -3,9 +3,11 @@ import {GrClose} from 'react-icons/gr'
 import axios from 'axios';
 
 const CreateModal = ({close}:{ close: () => void; }) => {
+  const token=localStorage.getItem('token')
   const config={
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${token}`
     }
   }
     const [form,setForm]=useState({

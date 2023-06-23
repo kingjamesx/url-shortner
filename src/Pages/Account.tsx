@@ -1,26 +1,49 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import AccountHeader from '../Components/AccountHeader'
 import LinkCard from '../Components/LinkCard'
 import CreateModal from '../Components/CreateModal'
-const dummyData=[
-    {
-        id:"1",
-        createdAt:new Date(),
-        name:"my website",
-        longURL:"https://google.com",
-        shortCode:"masdo",
-        totalClicks:313
+import axios from 'axios';
 
-    }
-]
+// const dummyData=[
+//     {
+//         id:"1",
+//         createdAt:new Date(),
+//         name:"my website",
+//         longURL:"https://google.com",
+//         shortCode:"masdo",
+//         totalClicks:313
+
+//     }
+// ]
 const Account = () => {
+  const token=localStorage.getItem('token')
+    const config={
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${token}`
+        }
+      }
+    useEffect(()=>{
+      getUrl(),[]
+    })
     const [links,setLinks]=useState([])
     const [modal,setModal]=useState(false)
+    const [data,setData]=useState([])
     const closeModal=()=>{
         setModal(false)
     }
     const handleClick=()=>{
          setModal(true)
+    }
+    const getUrl=async()=>{
+        try{
+            const response=await axios.get(`${import.meta.env.VITE_BASE_URL}url`,config)
+            const data=await response.data.data
+             console.log(data)
+             setData(data)
+         }catch(error){
+          console.log(error)
+         }
     }
 
   return (
@@ -38,7 +61,7 @@ const Account = () => {
         </section>
         <section>
             {
-                dummyData.map(item=>{
+                data.map(item=>{
                     return(
                         <LinkCard key={item.id} {...item}/>
                     )

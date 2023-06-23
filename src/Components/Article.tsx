@@ -41,15 +41,15 @@ const Article = () => {
         
         </span>
         
-        <article className="max-w-[1200px] mx-auto flex mt-10 justify-between ">
-            <section className="max-w-[400px]">
-                <h2 className="text-[40px] font-bold">Why choose Scissors</h2>
+        <article className="max-w-[1200px] mx-auto flex flex-col lg:flex-row  mt-10 justify-between px-5 lg:px-0">
+            <section className="max-w-[400px] mx-auto ">
+                <h2 className="text-2xl lg:text-[40px] font-bold">Why choose Scissors</h2>
                 <p className="font-[500]">Scissors is the hub of everything that has to do with your link management.
                      We shorten your URLs, allow you creating custom ones for your personal, business, event usage. Our swift 
                     QR code creation, management and usage tracking with advance 
                     analytics for all of these is second to none. </p>
             </section>
-            <section className="grid grid-cols-2 gap-5 gap-y-10">
+            <section className="grid grid-cols-1 lg:grid-cols-2 mx-auto  gap-5 gap-y-10 ">
                 {cardData.map(item=>{
                     return(
                         <div className="max-w-[340px]" key={item.id}>
@@ -66,9 +66,9 @@ const Article = () => {
             </section>
                 
         </article>
-        <div className=" max-w-[600px] mx-auto mt-10">
-        <h3 className="font-bold text-[40px]">A <span className="text-[#005AE2]">price perfect</span>  for your needs.</h3>
-                  <p className="font-[500] text-center">From catering for your personal, business, event, socials needs,
+        <div className=" max-w-[600px] mx-auto mt-10 px-5 lg:px-0">
+        <h3 className="font-bold text-4xl text-[40px] lgl:text-left text-center">A <span className="text-[#005AE2]">price perfect</span>  for your needs.</h3>
+                  <p className="font-[500] text-center mt-4 ">From catering for your personal, business, event, socials needs,
                      you can be rest assured we have you in mind in our pricing.</p>
         </div>
        
