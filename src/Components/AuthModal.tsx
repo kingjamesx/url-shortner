@@ -27,7 +27,7 @@ const AuthModal = ({close}:{ close: () => void; }) => {
    const submitSignUp= async(e:React.SyntheticEvent)=>{
     e.preventDefault()
     try{
-      const response=await axios.post(`${import.meta.env.VITE_BASE_URL}auth/signup`,{...form})
+      const response=await axios.post(`${import.meta.env.VITE_BASE_URL}auth/signup`,{form})
       const  data = await response.data
       toast.success('account creation sucessfully')
       setSignIn(!signIn)

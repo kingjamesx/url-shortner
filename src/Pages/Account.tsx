@@ -4,17 +4,17 @@ import LinkCard from '../Components/LinkCard'
 import CreateModal from '../Components/CreateModal'
 import axios from 'axios';
 
-// const dummyData=[
-//     {
-//         id:"1",
-//         createdAt:new Date(),
-//         name:"my website",
-//         longURL:"https://google.com",
-//         shortCode:"masdo",
-//         totalClicks:313
+const dummyData=[
+    {
+        id:"1",
+        createdAt:new Date(),
+        name:"my website",
+        longURL:"https://google.com",
+        shortCode:"masdo",
+        totalClicks:313
 
-//     }
-// ]
+    }
+]
 const Account = () => {
   const token=localStorage.getItem('token')
     const config={
@@ -26,9 +26,10 @@ const Account = () => {
     useEffect(()=>{
       getUrl(),[]
     })
+ 
     const [links,setLinks]=useState([])
     const [modal,setModal]=useState(false)
-    const [data,setData]=useState([])
+    const [data,setData]=useState([{id:"",createdAt:'', longUrl:'', shortUrl:'', count:''}])
     const closeModal=()=>{
         setModal(false)
     }
@@ -63,10 +64,13 @@ const Account = () => {
             {
                 data.map(item=>{
                     return(
-                        <LinkCard key={item.id} {...item}/>
+                        <div  key={item.id}>
+                        <LinkCard {...item}/>
+                        </div>
                     )
                 })
             }
+           
         </section>
        </main>
    

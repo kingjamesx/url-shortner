@@ -5,8 +5,10 @@ type LinkCard ={
   createdAt:String,
   longUrl:String,
   shortUrl:String,
-  count:number
+  count:String
 }
+
+
 
 
 const LinkCard = ({count,createdAt,longUrl,shortUrl}:LinkCard) => {
