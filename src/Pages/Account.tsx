@@ -24,8 +24,8 @@ const Account = () => {
         }
       }
     useEffect(()=>{
-      getUrl(),[]
-    })
+      getUrl()
+    },[])
  
     const [links,setLinks]=useState([])
     const [modal,setModal]=useState(false)
