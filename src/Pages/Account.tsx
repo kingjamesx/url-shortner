@@ -28,7 +28,7 @@ const Account = () => {
  
     const [links,setLinks]=useState([])
     const [modal,setModal]=useState(false)
-    const [data,setData]=useState([{id:"",createdAt:'', longUrl:'', shortUrl:'', count:''}])
+    const [data,setData]=useState([{_id:"",createdAt:'', longUrl:'', shortUrl:'', count:''}])
     const [update,setUpdate]=useState(0)
 
     useEffect(()=>{
@@ -51,13 +51,23 @@ const Account = () => {
           console.log(error)
          }
     }
+    const getQr=async(_id:String)=>{
+     const url=data.find(item=>item._id===_id)?.longUrl
+       try{
+         const response =await axios.post(`${import.meta.env.VITE_BASE_URL}url/qrcode`,url,config)
+         const data=await response.data
+         console.log(data)
+       }catch(error){
+        console.log(error)
+       }
+    }
 
   return (
     <div>
           {modal && <span 
         className= 'bg-[rgba(0,0,0,0.4)] w-full h-screen fixed z-1000'
       ></span> } 
-        {modal && <CreateModal close={closeModal} setUpdate={setUpdate}/>   }
+        {modal && <CreateModal close={closeModal} setUpdate={setUpdate} />   }
 
        <AccountHeader />
        <main className='mx-auto max-w-[1000px]'>
@@ -71,8 +81,8 @@ const Account = () => {
             {
                 data.map(item=>{
                     return(
-                        <div  key={item.id}>
-                        <LinkCard {...item}/>
+                        <div  key={item._id}>
+                        <LinkCard {...item} getQr={getQr}/>
                         </div>
                     )
                 })

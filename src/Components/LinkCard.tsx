@@ -5,16 +5,18 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {  toast } from 'react-toastify';
 
 type LinkCard ={
+  _id:String,
   createdAt:String,
   longUrl:String,
   shortUrl:string,
-  count:String
+  count:String,
+  getQr:any
 }
 
 
 
 
-const LinkCard = ({count,createdAt,longUrl,shortUrl}:LinkCard) => {
+const LinkCard = ({_id,count,createdAt,longUrl,shortUrl,getQr}:LinkCard) => {
   // const date=new Date(createdAt)
   return (
     <div>
@@ -31,6 +33,7 @@ const LinkCard = ({count,createdAt,longUrl,shortUrl}:LinkCard) => {
           onCopy={() =>toast.success('copied') }>
             <button className="bg-[#0ab455] text-white rounded py-0.5  px-2">Copy</button>
             </CopyToClipboard>
+            <button onClick={()=>getQr(_id)} className=" bg-blue-400 rounded text-white py-0.5  px-2">Get qr</button>
             <button className=" bg-[#e92556] rounded text-white py-0.5  px-2">Delete</button>
           </span>
         </div>
