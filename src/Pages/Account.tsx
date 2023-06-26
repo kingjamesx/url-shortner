@@ -3,6 +3,7 @@ import AccountHeader from '../Components/AccountHeader'
 import LinkCard from '../Components/LinkCard'
 import CreateModal from '../Components/CreateModal'
 import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
 
 const dummyData=[
     {
@@ -23,13 +24,17 @@ const Account = () => {
           authorization: `Bearer ${token}`
         }
       }
-    useEffect(()=>{
-      getUrl()
-    },[])
+   
  
     const [links,setLinks]=useState([])
     const [modal,setModal]=useState(false)
     const [data,setData]=useState([{id:"",createdAt:'', longUrl:'', shortUrl:'', count:''}])
+    const [update,setUpdate]=useState(0)
+
+    useEffect(()=>{
+      getUrl()
+    },[update])
+
     const closeModal=()=>{
         setModal(false)
     }
@@ -52,7 +57,7 @@ const Account = () => {
           {modal && <span 
         className= 'bg-[rgba(0,0,0,0.4)] w-full h-screen fixed z-1000'
       ></span> } 
-        {modal && <CreateModal close={closeModal}/>}
+        {modal && <CreateModal close={closeModal} setUpdate={setUpdate}/>   }
 
        <AccountHeader />
        <main className='mx-auto max-w-[1000px]'>
@@ -61,6 +66,8 @@ const Account = () => {
             <button onClick={handleClick} className='bg-[#56b7ba] text-white px-5 py-1  rounded-md font-bold'>Create New</button>
         </section>
         <section>
+      <ToastContainer />
+
             {
                 data.map(item=>{
                     return(

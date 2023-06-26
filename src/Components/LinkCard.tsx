@@ -1,10 +1,13 @@
 import React from "react";
 import { MdOutlineBarChart } from "react-icons/md";
 import format from "date-fns/format";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {  toast } from 'react-toastify';
+
 type LinkCard ={
   createdAt:String,
   longUrl:String,
-  shortUrl:String,
+  shortUrl:string,
   count:String
 }
 
@@ -24,8 +27,10 @@ const LinkCard = ({count,createdAt,longUrl,shortUrl}:LinkCard) => {
           <p>{longUrl}</p>
           <span className="flex gap-4 mt-5">
             <p >{shortUrl}</p> 
-
+            <CopyToClipboard text={shortUrl}
+          onCopy={() =>toast.success('copied') }>
             <button className="bg-[#0ab455] text-white rounded py-0.5  px-2">Copy</button>
+            </CopyToClipboard>
             <button className=" bg-[#e92556] rounded text-white py-0.5  px-2">Delete</button>
           </span>
         </div>

@@ -1,8 +1,11 @@
 import {useState} from 'react'
 import {GrClose} from 'react-icons/gr'
 import axios from 'axios';
-
-const CreateModal = ({close}:{ close: () => void; }) => {
+type Iprop={
+  close:()=>void,
+  setUpdate:any
+}
+const CreateModal = ({close,setUpdate}:Iprop) => {
   const token=localStorage.getItem('token')
   const config={
     headers: {
@@ -24,9 +27,11 @@ const CreateModal = ({close}:{ close: () => void; }) => {
      const handleSubmit= async(e:React.SyntheticEvent)=>{
       e.preventDefault()
    try{
+    const rand=Math.random()
       const response=await axios.post(`${import.meta.env.VITE_BASE_URL}url`,form,config)
       const data=await response.data
        console.log(data)
+       setUpdate(rand)
    }catch(error){
     console.log(error)
    }
