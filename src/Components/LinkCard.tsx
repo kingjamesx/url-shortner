@@ -10,13 +10,14 @@ type LinkCard ={
   longUrl:String,
   shortUrl:string,
   count:String,
-  getQr:any
+  getQr:any,
+  onClick:any
 }
 
 
 
 
-const LinkCard = ({_id,count,createdAt,longUrl,shortUrl,getQr}:LinkCard) => {
+const LinkCard = ({_id,count,createdAt,longUrl,shortUrl,getQr,onClick}:LinkCard) => {
   // const date=new Date(createdAt)
   return (
     <div>
@@ -34,7 +35,7 @@ const LinkCard = ({_id,count,createdAt,longUrl,shortUrl,getQr}:LinkCard) => {
             <button className="bg-[#0ab455] text-white rounded py-0.5  px-2">Copy</button>
             </CopyToClipboard>
             <button onClick={()=>getQr(_id)} className=" bg-blue-400 rounded text-white py-0.5  px-2">Get qr</button>
-            <button className=" bg-[#e92556] rounded text-white py-0.5  px-2">Delete</button>
+            <button onClick={()=>onClick(_id)} className=" bg-[#e92556] rounded text-white py-0.5  px-2">Delete</button>
           </span>
         </div>
         <div className="flex flex-col items-center">

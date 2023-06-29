@@ -28,8 +28,8 @@ const CreateModal = ({close,setUpdate}:Iprop) => {
       e.preventDefault()
    try{
     const rand=Math.random()
-      const response=await axios.post(`${import.meta.env.VITE_BASE_URL}url`,form,config)
-      const data=await response.data
+      const response=await axios.post(`${import.meta.env.VITE_BASE_URL}url/qrcode`,form,config)
+      const data=await response.data.data
        console.log(data)
        setUpdate(rand)
    }catch(error){
